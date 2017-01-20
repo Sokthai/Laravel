@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('pages.home');
 });
+
+
+
+Route::get('{zip}/{street}', 'FlyerController@show');
+
+Route::group(['middleware' => 'web'], function(){
+    Route::resource('flyers', 'FlyerController');
+});
+

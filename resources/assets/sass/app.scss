@@ -7,3 +7,18 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+//use import to include in the this file is the same as writing directly in this file. the reason is to oraginze the code
+//when changing anything in this file, run 'gulp' command line
+@import "partials/forms";
+
+
+
+body{
+  padding-top: 80px;
+}
+
+//.form-control{
+//  height: 60px;
+//}
