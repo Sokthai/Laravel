@@ -17,9 +17,10 @@ Route::get('/', function () {
 
 
 
-Route::get('{zip}/{street}', 'FlyerController@show');
+
 
 Route::group(['middleware' => 'web'], function(){
     Route::resource('flyers', 'FlyerController');
 });
 
+Route::get('{zip}/{street}', 'FlyerController@show');

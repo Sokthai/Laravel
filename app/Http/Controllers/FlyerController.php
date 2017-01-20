@@ -58,7 +58,9 @@ class FlyerController extends Controller
      */
     public function show($zip, $street)
     {
-        return "ok";
+        $flyers = Flyer::LocatedAt($zip, $street)->first();
+
+        return view('flyers.show', compact('flyers'));
     }
 
     /**

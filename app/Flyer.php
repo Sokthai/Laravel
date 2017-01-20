@@ -17,10 +17,23 @@ class Flyer extends Model
           'description',
     ];
 
+
+    public function scopeLocatedAt($query, $zip, $street){
+        $street = str_replace('-', ' ', $street);
+        return $query->where(compact('zip', 'street'));
+    }
+
+
     public function photos(){
         return $this->hasMany('App\photo');
     }
 
+    public function getPriceAttribute($price){ //this will format the Price attribute whenever we call Price field ($flyers->price)
+        return 'Price: $' . number_format($price);
+    }
 
+    public function getStreetAttribute($street){ //this will format the street attribute whenever we call street field ($flyers->street)
+        return 'Street: ' . $street;
+    }
 
 }
